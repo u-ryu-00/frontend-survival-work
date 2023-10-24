@@ -9,20 +9,20 @@ type SearchBarProps = {
 };
 
 export default function searchBar({
-	filterText, setFilterText, inStockOnly, setInStockOnly,
+  filterText, setFilterText, inStockOnly, setInStockOnly,
 }: SearchBarProps) {
-	return (
-		<div className='search-bar'>
-			<TextField
-				placeholder='Search...'
-				filterText={filterText}
-				setFilterText={setFilterText}
-			/>
-			<CheckBoxField
-				label='Only show products in stock'
-				inStockOnly={inStockOnly}
-				setInStockOnly={setInStockOnly}
-			/>
-		</div>
-	);
+  return (
+    <div className='search-bar'>
+      <TextField
+        placeholder='Search...'
+        filterText={filterText}
+        setFilterText={setFilterText}
+      />
+      <CheckBoxField
+        label='Only show products in stock'
+        inStockOnly={inStockOnly}
+        setInStockOnly={setInStockOnly}
+      />
+    </div>
+  );
 }
