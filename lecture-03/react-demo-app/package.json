@@ -21,6 +21,8 @@
     "@testing-library/jest-dom": "^6.1.4",
     "@testing-library/react": "^14.0.0",
     "@types/jest": "^29.5.6",
+    "@types/react": "^18.2.31",
+    "@types/react-dom": "^18.2.14",
     "@typescript-eslint/eslint-plugin": "^6.8.0",
     "@typescript-eslint/parser": "^6.8.0",
     "eslint": "^8.51.0",
@@ -35,10 +37,8 @@
     "typescript": "^5.2.2"
   },
   "dependencies": {
-    "@types/react": "^18.2.29",
-    "@types/react-dom": "^18.2.14",
-    "D": "^1.0.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "usehooks-ts": "^2.9.1"
   }
 }

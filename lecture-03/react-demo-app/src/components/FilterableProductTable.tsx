@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 import ProductTable from './ProductTable';
 
@@ -13,24 +13,36 @@ type FilterableProductTableProps = {
 };
 
 export default function FilterableProductTable({
-	products,
+  products,
 }: FilterableProductTableProps) {
-	const [filterText, setFilterText] = useState<string>('');
-	const [inStockOnly, setInStockOnly] = useState<boolean>(false);
+  const query = useRef(' ');
 
-	const filteredProducts = filterProducts(products, {
-		filterText, inStockOnly,
-	});
+  const [filterText, setFilterText] = useState<string>('');
+  const [inStockOnly, setInStockOnly] = useState<boolean>(false);
 
-	return (
-		<div>
-			<SearchBar
-				filterText={filterText}
-				setFilterText={setFilterText}
-				inStockOnly={inStockOnly}
-				setInStockOnly={setInStockOnly}
-			/>
-			<ProductTable products={filteredProducts} />
-		</div>
-	);
+  const filteredProducts = filterProducts(products, {
+    filterText, inStockOnly,
+  });
+
+  useEffect(() => {
+    query.current = filterText;
+  }, [filterText]);
+
+  useEffect(() => {
+    setTimeout(() => {
+      console.log(query.current);
+    }, 5_000);
+  }, []);
+
+  return (
+    <div>
+      <SearchBar
+        filterText={filterText}
+        setFilterText={setFilterText}
+        inStockOnly={inStockOnly}
+        setInStockOnly={setInStockOnly}
+      />
+      <ProductTable products={filteredProducts} />
+    </div>
+  );
 }

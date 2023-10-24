@@ -1,4 +1,4 @@
-import {useRef} from 'react';
+import { useRef } from 'react';
 
 type CheckBoxFieldProps = {
 	label: string;
@@ -7,25 +7,25 @@ type CheckBoxFieldProps = {
 };
 
 export default function CheckBoxField({
-	label, inStockOnly, setInStockOnly,
+  label, inStockOnly, setInStockOnly,
 }: CheckBoxFieldProps) {
-	const id = useRef(`checkbox-${label}`.replace(/ /g, '-').toLowerCase());
+  const id = useRef(`checkbox-${label}`.replace(/ /g, '-').toLowerCase());
 
-	const handleChange = () => {
-		setInStockOnly(!inStockOnly);
-	};
+  const handleChange = () => {
+    setInStockOnly(!inStockOnly);
+  };
 
-	return (
-		<div>
-			<input
-				type='checkbox'
-				id={id.current}
-				checked={inStockOnly}
-				onChange={handleChange}
-			/>
-			<label htmlFor={id.current}>
-				{label}
-			</label>
-		</div>
-	);
+  return (
+    <div>
+      <input
+        type='checkbox'
+        id={id.current}
+        checked={inStockOnly}
+        onChange={handleChange}
+      />
+      <label htmlFor={id.current}>
+        {label}
+      </label>
+    </div>
+  );
 }

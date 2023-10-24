@@ -10,16 +10,16 @@ type ProductsInCategoryProps = {
 };
 
 export default function ProductsInCategory({
-	category, products,
+  category, products,
 }: ProductsInCategoryProps) {
-	const productsInCategory = selectProducts(products, category);
+  const productsInCategory = selectProducts(products, category);
 
-	return (
-		<>
-			<ProductCategoryRow category={category} />
-			{productsInCategory.map(product => (
-				<ProductRow key={product.name} product={product} />
-			))}
-		</>
-	);
+  return (
+    <>
+      <ProductCategoryRow category={category} />
+      {productsInCategory.map(product => (
+        <ProductRow key={product.name} product={product} />
+      ))}
+    </>
+  );
 }
