@@ -29,7 +29,6 @@ interface ProductsResult {
 export default function useFetchProducts() {
   const url = 'http://localhost:3000/products';
   const { data, error } = useFetch<ProductsResult>(url);
-  console.log({ error });
   if (!data) {
     return [];
   }
