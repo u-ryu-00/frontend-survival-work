@@ -12,14 +12,15 @@ export default function searchBar({
   filterText, setFilterText, inStockOnly, setInStockOnly,
 }: SearchBarProps) {
   return (
-    <div className='search-bar'>
+    <div className="search-bar">
       <TextField
-        placeholder='Search...'
-        filterText={filterText}
-        setFilterText={setFilterText}
+        label="Search"
+        placeholder="Search..."
+        text={filterText}
+        setText={setFilterText}
       />
       <CheckBoxField
-        label='Only show products in stock'
+        label="Only show products in stock"
         inStockOnly={inStockOnly}
         setInStockOnly={setInStockOnly}
       />

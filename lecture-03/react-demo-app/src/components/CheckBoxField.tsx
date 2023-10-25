@@ -18,7 +18,7 @@ export default function CheckBoxField({
   return (
     <div>
       <input
-        type='checkbox'
+        type="checkbox"
         id={id.current}
         checked={inStockOnly}
         onChange={handleChange}
