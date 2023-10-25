@@ -8,8 +8,6 @@ const handlers = [
   rest.get(`${BASE_URL}/products`, (req, res, ctx) => {
     const { products } = fixtures;
 
-    console.log(products);
-
     return res(
       ctx.status(200),
       ctx.json({ products }),
