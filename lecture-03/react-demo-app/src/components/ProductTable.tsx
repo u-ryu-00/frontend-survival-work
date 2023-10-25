@@ -11,7 +11,7 @@ export default function ProductTable({ products }: ProductTableProps) {
   const categories = selectCategories(products);
 
   return (
-    <table className='product-table'>
+    <table className="product-table">
       <thead>
         <tr>
           <th>Name</th>

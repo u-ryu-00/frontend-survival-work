@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { useState } from 'react';
 
 import { useEffectOnce, useFetch } from 'usehooks-ts';
@@ -21,13 +22,14 @@ function useFetchProductsOld() {
   return products;
 }
 
-interface Products {
+interface ProductsResult {
 	[products: string]: Product[];
 }
 
 export default function useFetchProducts() {
   const url = 'http://localhost:3000/products';
-  const { data } = useFetch<Products>(url);
+  const { data, error } = useFetch<ProductsResult>(url);
+  console.log({ error });
   if (!data) {
     return [];
   }

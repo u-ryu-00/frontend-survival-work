@@ -33,11 +33,11 @@ export default function TimerControl() {
       ) : (
         <p>Stop</p>
       )}
-      <button type='button' onClick={togglePlaying}>
+      <button type="button" onClick={togglePlaying}>
 				Toggle
       </button>
       <p>{count}</p>
-      <button type='button' onClick={increment}>
+      <button type="button" onClick={increment}>
 				Increase
       </button>
     </div>

@@ -2,31 +2,32 @@ import type React from 'react';
 import { useRef } from 'react';
 
 type TextFieldProps = {
+  label: string;
 	placeholder: string;
-	filterText: string;
-	setFilterText: (value: string) => void;
+	text: string;
+	setText: (value: string) => void;
 };
 
 export default function TextField({
-  placeholder, filterText, setFilterText,
+  label, placeholder, text, setText,
 }: TextFieldProps) {
   const id = useRef(`input-${Math.random()}`);
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = event.target;
-    setFilterText(value);
+    setText(value);
   };
 
   return (
     <div>
       <label htmlFor={id.current}>
-				Search
+        {label}
       </label>
       <input
         id={id.current}
-        type='text'
+        type="text"
         placeholder={placeholder}
-        value={filterText}
+        value={text}
         onChange={handleChange}
       />
     </div>
