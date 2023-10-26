@@ -53,5 +53,6 @@ module.exports = {
     'react/jsx-filename-extension': [2, {
       extensions: ['.js', '.jsx', '.ts', '.tsx'],
     }],
+    'capitalized-comments': 'off',
   },
 };
