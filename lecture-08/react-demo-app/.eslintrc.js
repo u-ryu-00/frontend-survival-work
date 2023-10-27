@@ -55,5 +55,6 @@ module.exports = {
     }],
     'capitalized-comments': 'off',
     'jsx-quotes': ['error', 'prefer-double'],
+    'arrow-parens': ['error', 'always'],
   },
 };
