@@ -2,6 +2,7 @@ module.exports = {
   testEnvironment: 'jsdom',
   setupFilesAfterEnv: [
     '@testing-library/jest-dom',
+    '<rootDir>/src/setupTests.ts',
   ],
   transform: {
     '^.+\\.(t|j)sx?$': ['@swc/jest', {
