@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 const Container = styled.header`
@@ -28,6 +29,9 @@ export default function Header() {
   return (
     <Container>
       <h1>Shop</h1>
+      <nav>
+        <Link to="/products">Products</Link>
+      </nav>
     </Container>
   );
 }
