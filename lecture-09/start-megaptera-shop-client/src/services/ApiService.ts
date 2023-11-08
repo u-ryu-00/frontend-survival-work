@@ -3,12 +3,38 @@ import {
   Cart, Category, ProductDetail, ProductSummary,
 } from '../types';
 
-const API_BASE_URL = process.env.API_BASE_URL || 'https://shop-demo-api-01.fly.dev';
+const API_BASE_URL = process.env.API_BASE_URL || 'https://shop-demo-api-02.fly.dev';
 
 export default class ApiService {
   private instance = axios.create({
     baseURL: API_BASE_URL,
   });
+
+  private accessToken = '';
+
+  setAccessToken(accessToken: string) {
+    if (accessToken === this.accessToken) {
+      return;
+    }
+
+    const authorization = accessToken ? `Bearer ${accessToken}` : undefined;
+
+    this.instance = axios.create({
+      baseURL: API_BASE_URL,
+      headers: { Authorization: authorization },
+    });
+
+    this.accessToken = accessToken;
+  }
+
+  async login({ email, password }: {
+    email: string;
+    password: string;
+  }): Promise<string> {
+    const { data } = await this.instance.post('/session', { email, password });
+    const { accessToken } = data;
+    return accessToken;
+  }
 
   async fetchCategories(): Promise<Category[]> {
     const { data } = await this.instance.get('/categories');
