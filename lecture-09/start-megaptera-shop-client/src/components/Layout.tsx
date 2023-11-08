@@ -3,6 +3,7 @@ import { Outlet } from 'react-router-dom';
 import styled from 'styled-components';
 
 import Header from './Header';
+import useCheckAccessToken from '../hooks/useCheckAccessToken';
 
 const Container = styled.div`
   margin-inline: auto;
@@ -10,6 +11,8 @@ const Container = styled.div`
 `;
 
 export default function Layout() {
+  useCheckAccessToken();
+
   return (
     <Container>
       <Header />
