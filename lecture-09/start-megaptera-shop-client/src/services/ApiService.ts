@@ -36,6 +36,19 @@ export default class ApiService {
     return accessToken;
   }
 
+  async logout(): Promise<void> {
+    await this.instance.delete('/session');
+  }
+
+  async fetchCurrentUser(): Promise<{
+    id: string;
+    name: string;
+  }> {
+    const { data } = await this.instance.get('/users/me');
+    const { id, name } = data;
+    return { id, name };
+  }
+
   async fetchCategories(): Promise<Category[]> {
     const { data } = await this.instance.get('/categories');
     const { categories } = data;
