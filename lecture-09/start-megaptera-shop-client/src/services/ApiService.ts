@@ -40,6 +40,18 @@ export default class ApiService {
     await this.instance.delete('/session');
   }
 
+  async signup({ email, name, password }: {
+    email: string;
+    name: string;
+    password: string;
+  }): Promise<string> {
+    const { data } = await this.instance.post('/users', {
+      email, name, password,
+    });
+    const { accessToken } = data;
+    return accessToken;
+  }
+
   async fetchCurrentUser(): Promise<{
     id: string;
     name: string;
