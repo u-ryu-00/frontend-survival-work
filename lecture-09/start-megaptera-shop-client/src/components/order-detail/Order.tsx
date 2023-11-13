@@ -19,7 +19,7 @@ const Container = styled.div`
     dd {
       width: calc(100% - 8rem);
     }
-  }
+    }
 `;
 
 type OrderProps = {
